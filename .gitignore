@@ -169,3 +169,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+Fluid-IDE/Fluid-IDE.app/
+Fluid-IDE/obj

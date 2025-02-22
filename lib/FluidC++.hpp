@@ -133,6 +133,13 @@
 #define @true true
 #define @false false
 
+// Super-Objective-C syntax definitions
+
+#define @super : public
+#define @endSuper ;
+#define @overrideSuper override
+#define @finalSuper final
+
 // Built-in classes
 
 @interface SysUnix
@@ -174,6 +181,33 @@
     std::string result = str;
     std::transform(result.begin(), result.end(), result.begin(), ::tolower);
     return result;
+}
+@endImpl
+
+// Define NSString and NSObject
+
+@interface NSObject
+- (void) init(self);
+@end
+
+@implementation NSObject
+- (void) init(self) {
+    // Initialization code
+}
+@endImpl
+
+@interface NSString : public std::string
+- (NSString) initWithCString(self, const char* cstr);
+- (const char*) cString(self);
+@end
+
+@implementation NSString
+- (NSString) initWithCString(self, const char* cstr) {
+    self->assign(cstr);
+    return *self;
+}
+- (const char*) cString(self) {
+    return self->c_str();
 }
 @endImpl
 
