@@ -2,4 +2,5 @@
 
 @interface Headers: NSObject
    // implement Objc headers
+   @property Head;
 @end

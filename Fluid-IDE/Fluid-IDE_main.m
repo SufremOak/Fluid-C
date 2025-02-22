@@ -7,24 +7,7 @@
 */
 
 #import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
 
-@interface TextEditor : NSObject <NSApplicationDelegate>
-@property (strong, nonatomic) NSWindow *window;
-@property (strong, nonatomic) NSTextView *textView;
-@end
-
-@implementation TextEditor
-
-- (void)applicarionDidFinishLaunching:(NSNotification *)notification {
-  NSRect frame = NSMakeRect(100, 100, 600, 400);
-  
-  // create window
-  self.window = [[NSWindow alloc] initWithContentRect:frame
-    styleMask:(NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask)
-    backing:NSBackgroundStoreBuffered
-    defer:NO];
-}
 
 int 
 main(int argc, const char *argv[])
@@ -41,7 +24,6 @@ main(int argc, const char *argv[])
   #endif
    
   RELEASE (pool);
-
 
   return NSApplicationMain (argc, argv);
 }
