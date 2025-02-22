@@ -24,7 +24,7 @@ include $(GNUSTEP_MAKEFILES)/common.make
 #
 VERSION = 0.1
 PACKAGE_NAME = Fluid-IDE
-APP_NAME = Fluid-IDE
+APP_NAME = Fluid IDE
 Fluid-IDE_APPLICATION_ICON = 
 
 

@@ -30,7 +30,7 @@ int
 main(int argc, const char *argv[])
 {
 // Uncomment if your application is Renaissance application
-/*  CREATE_AUTORELEASE_POOL (pool);
+  CREATE_AUTORELEASE_POOL (pool);
   [NSApplication sharedApplication];
   [NSApp setDelegate: [AppController new]];
 
@@ -41,7 +41,7 @@ main(int argc, const char *argv[])
   #endif
    
   RELEASE (pool);
-*/
+
 
   return NSApplicationMain (argc, argv);
 }
