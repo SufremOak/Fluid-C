@@ -45,7 +45,8 @@ AppController.h
 # Objective-C Class files
 #
 Fluid-IDE_OBJC_FILES = \
-AppController.m
+AppController.m \
+CustomTextView.m
 
 #
 # Other sources
