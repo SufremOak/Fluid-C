@@ -20,7 +20,7 @@
 		func getPypi:
 		   // implement later
 		end ;
-	@endImpl
+	@end
 
 	// @property 
 }
