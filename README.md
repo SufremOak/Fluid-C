@@ -4,7 +4,7 @@ An superset of C++, Cython, and Objective-C++
 ## Concept
 An combination of 3 powerful programming languages into a two supersets: Fluid-C++ and Objective-F++
 
-### The diference between ObjF++ and FluidCpp
+### The diference between ObjF++ and FluidC++
 - FluidC++ is not fully Object oriented, its Fluid organization oriented, that makes the code easier to read and debug, making an begginer friendly and professional language. example:
   ```cpp
   #include <FluidC++.hpp>
@@ -31,7 +31,7 @@ An combination of 3 powerful programming languages into a two supersets: Fluid-C
   }
   ```
 
-  - Objective-F++ is an fully object oriented language, but it doesn't have the fluid organization modules, which looks-like Objective-J, example:
+- Objective-F++ is an fully object oriented language, but it doesn't have the fluid organization modules, which looks-like Objective-J, example:
     ```objective-c
     @import <langf.h>
 
@@ -55,15 +55,76 @@ An combination of 3 powerful programming languages into a two supersets: Fluid-C
       return(-0);
     }
     ```
-    - Objective-F is not compatible with Objective-C or Objective-C++, but Fluid-C++ is compatible with C/C++.
-    - in Fluid-C++ you can also use an Cython-like syntax with the `Cython.h` header:
+- Objective-F++ is not compatible with Objective-C or Objective-C++, but Fluid-C++ is compatible with C/C++.
+- in Fluid-C++ you can also use an Cython-like syntax with the `Cython.h` header:
     ```cpp
     #include <FluidC++>
     #include <Cython.h>
 
-    #define int as Cyt.pyf
+    #define int as Cyt.py
 
     cdef string from "string.h":
        cstr.makerStr = (name, age, stack) then
-          setStr.c = ("Mateo", "26", "90s")
+          setStr.c = ("Mateo", "26", "lowasm")
+
+    main <def> {
+        pyprint(string.mod)
+        exit 0;
+    }
     ```
+
+## Getting started
+
+### 1. Building the compiler headers, and the libs
+1. get the source code
+   ```bash
+    $ git clone https://github.com/SufremOak/Fluid-C.git
+    $ cd Fluid-C
+   ```
+2. install the dependencies
+   ```bash
+   # on debian-based systems
+   sudo apt install gcc g++ libobjc-dev libncurses-dev automake autoconf python3 make cmake
+   # on Fedora/RHEL systems
+   sudo dnf install gcc gobjc automake autoconf python3 make cmake
+   # on Arch Linux based systems
+   sudo pacman -S gcc g++ gobjc automake autoconf python3 make cmake
+   # on macOS systems
+   brew install gcc automake autoconf python3 make cmake
+   # on MSYS2, install python via the python msi <https://python.org>
+   pacman -S automake ncurses autoconf gobjc make cmake
+   ```
+
+   if you're in any other plataform there is the dependencies list:
+   - gcc
+   - g++
+   - automake
+   - autoconf
+   - make
+   - libobjc/libobjc++
+   - python3.13
+   - cmake
+  3. install the python dependencies
+     ```bash
+     $ python -m venv env
+     $ pip install -r requirements.txt
+     ```
+  4. compile
+     ```bash
+      $ mkdir build
+      $ cd build
+      $ cmake ..
+      # its recommended to install it as root
+      su
+      root> make
+      # compile only the Fluid-C++ libs
+      root> make fluidcpp
+      # compile only the Objective-F++ libs
+      root> make objf++
+      # install the compiled libs
+      root> make install-libs
+     ```
+  ## License
+  This project lays on the LGPL license
+
+
