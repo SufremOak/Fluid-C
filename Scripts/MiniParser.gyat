@@ -1,0 +1,22 @@
+sup sigma
+    ts currentState = spit("fn(x) > ");
+    // detect input (in cli parsing yay)
+    icl (currentState = "nef") {
+        ts funcName = spit("Enter <name> for `fn`");
+        icl (funcName = "main") {
+            ong("INFO: main function detected!");
+        } else {
+            ong("ERROR: Main function is needed")
+        }
+    }
+
+    icl (currentState = "if") {
+        ts condition = spit("Enter condition for `if`");
+        icl (condition = "") {
+            ong("Huh?");
+        } else {
+            ong("PIT: not implemented");
+        }
+    }
+
+duh sigma
