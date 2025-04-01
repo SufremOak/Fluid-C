@@ -1,4 +1,4 @@
-# Fluid-C++
+# Fluid-C (Classic)
 An superset of C++, Cython, and Objective-C++
 
 ## Concept
