@@ -4,8 +4,8 @@ import { mock, instance } from 'ts-mockito';
 //import { HelloWorldService } from '../src/logger/hello-world.service.ts';
 //import { Logger } from '../src/logger/logger.ts';
 _chai.should();
-@suite class HelloWorldServiceUnitTests {
-
+@suite
+class HelloWorldServiceUnitTests {
   private SUT: HelloWorldService;
   private loggerMock: Logger;
 
@@ -17,5 +17,4 @@ _chai.should();
   @test 'should do something when call a method'() {
     this.SUT.should.be.not.undefined;
   }
-
 }

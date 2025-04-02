@@ -1,3 +1,3 @@
 {
-    "setupFile": "./Scripts/test-setup.ts"
+  "setupFile": "./Scripts/test-setup.ts"
 }

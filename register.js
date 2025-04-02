@@ -7,12 +7,12 @@ tsConfigPaths.register({
   baseUrl: './test',
   paths: {
     ...mainTSConfig.compilerOptions.paths,
-    ...testTSConfig.compilerOptions.paths
-  }
+    ...testTSConfig.compilerOptions.paths,
+  },
 });
 
 tsNode.register({
   files: true,
   transpileOnly: true,
-  project: './Scripts/test/tsconfig.json'
+  project: './Scripts/test/tsconfig.json',
 });
