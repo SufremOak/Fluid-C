@@ -1,0 +1,12 @@
+// FluidScripten MiniCompiler
+
+import { join } from "std/text"
+import { file_append, file_read, dir_create, dir_exists, file_chmod } from "std/fs"
+
+fun main() {
+    $ which gcc $ failed {
+        echo "this program requires gcc!"
+    } else {
+        continue
+    }
+}
