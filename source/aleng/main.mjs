@@ -30,5 +30,5 @@ fs.readFile(filePath, 'utf8', (err, data) => {
 if (!fs.existsSync(filePath)) {
     console.error(`File not found: ${filePath}`);
     process.exit(1);
-  }
+}
   
