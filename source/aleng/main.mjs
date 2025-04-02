@@ -3,7 +3,7 @@ import { fs } from "fs";
 
 const args = process.argv.slice(2);
 if (args.length < 1) {
-  console.error("Usage: node run_aleng.js <path-to-aleng-file>");
+  console.error("Usage: node main.mjs <path-to-aleng-file>");
   process.exit(1); // Exit with an error code
 }
 
