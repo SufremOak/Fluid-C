@@ -1,9 +1,19 @@
 [package]
-name = "sufremoak/fluidscripten"
-version = "0.1.1"
-# description = "A code generator that lets you treat WebAssembly modules like native dependencies."
-license = "MIT" # OR license-file = "./LICENSE.md"
-readme = "./README.md"
-# repository = "https://github.com/wasmerio/wasmer-pack"
+name = 'FluidScripten'
+version = '0.1.0'
+description = 'Description for package FluidScripten'
 
-entrypoint = "wasmer-pack"
+# See more keys and definitions at https://docs.wasmer.io/registry/manifest
+
+[[module]]
+name = 'FluidScripten'
+source = 'FluidScripten.wasm'
+abi = 'wasi'
+
+[module.interfaces]
+wasi = '0.1.0-unstable'
+
+[[command]]
+name = 'FluidScripten'
+module = 'FluidScripten'
+runner = 'wasi'

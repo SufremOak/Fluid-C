@@ -1,0 +1,18 @@
+{js
+    function stdlib() {
+        // stdlib main function
+    }
+}
+
+<mml version=0.1>
+    <marki
+        name="makin.stdlib"
+        type="module"
+        functions={ js.stdlib(), js.io() }
+    />
+    <lib>
+        { :format u32 }
+        { :default makin.defaults }
+        { :rendererSupport? false }
+    </lib>
+</mml>
