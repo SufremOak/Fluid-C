@@ -22,6 +22,7 @@ markupContent
   = importStatement
   / constantBlock
   / booleanBlock
+  / atomicBlock
   / element
   / defineBlock
   / ifBlock
@@ -30,6 +31,7 @@ markupContent
   / dynamicBlock
   / markiTag
   / fullJSBlock
+  / schemaBlock
 
 // <import> statement
 importStatement
@@ -57,6 +59,17 @@ booleanBlock
         type: "Boolean",
         name,
         value: v
+      };
+  }
+
+// <atomic name="..." type="..." value="..." />
+atomicBlock
+  = "<atomic" _ "name" _ "=" _ "\"" name:identifier "\"" _ "type" _ "=" _ "\"" dtype:identifier "\"" _ "value" _ "=" _ val:literal "\"" _ "/>" {
+      return {
+        type: "Atomic",
+        name,
+        dataType: dtype,
+        value: val
       };
   }
 
@@ -158,12 +171,24 @@ markiBody
 markiLine
   = _ line:((!"/>" .)+) _ { return line.join("").trim(); }
 
+// <schema>...</schema> block for JSON schema definitions
+schemaBlock
+  = "<schema>" json:schemaContent "</schema>" {
+      return {
+        type: "Schema",
+        content: json.trim()
+      };
+  }
+
+schemaContent
+  = $((!"</schema>" .)*)
+
 openTag = "<?js" _
 closeTag = "?>"
 
-// Identifier: names, keys
+// Identifier: names, keys (now supports Unicode)
 identifier
-  = $([a-zA-Z_][a-zA-Z0-9_-]*)
+  = $([\p{L}_][\p{L}\p{N}_-]*)
 
 // Literal values: boolean, number, or string
 literal
