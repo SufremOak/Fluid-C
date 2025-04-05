@@ -1,4 +1,5 @@
 import { parser } from './grammar';
+const markedParser = import { parser } from "./marked";
 import { fs } from 'fs';
 
 const args = process.argv.slice(2);
