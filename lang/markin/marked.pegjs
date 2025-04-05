@@ -32,6 +32,7 @@ markupContent
   / markiTag
   / fullJSBlock
   / schemaBlock
+  / embeddedLangBlock
 
 // <import> statement
 importStatement
@@ -182,6 +183,19 @@ schemaBlock
 
 schemaContent
   = $((!"</schema>" .)*)
+
+// <lang type="typescript">...</lang> for embedded languages
+embeddedLangBlock
+  = "<lang" _ "type" _ "=" _ "\"" lang:identifier "\"" ">" content:embeddedContent "</lang>" {
+      return {
+        type: "EmbeddedLanguage",
+        language: lang,
+        content: content.trim()
+      };
+  }
+
+embeddedContent
+  = $((!"</lang>" .)*)
 
 openTag = "<?js" _
 closeTag = "?>"
