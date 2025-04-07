@@ -14,5 +14,16 @@
         { :format u32 }
         { :default makin.defaults }
         { :rendererSupport? false }
+        <mainEntry>
+            { mml.Setup(main*js(js.main())) }
+            {js
+                // :marki { setfn = main }
+                function MarkiStdMain(markin.Fn) {
+                    const stdfn = ${function}
+                    const function = function()
+                }
+                export MarkiStdMain() as Markin
+            }
+        </mainEntry>
     </lib>
 </mml>
