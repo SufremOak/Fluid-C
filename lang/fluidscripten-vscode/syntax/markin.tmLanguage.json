@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Markin",
+  "patterns": [
+    { "include": "#markup" },
+    { "include": "#script" },
+    { "include": "#directives" },
+    { "include": "#yaml" },
+    { "include": "#json" },
+    { "include": "#embedded" }
+  ],
+  "repository": {
+    "markup": {
+      "patterns": [
+        {
+          "name": "keyword.control.markin",
+          "match": "<\\/?(mml|element|define|property|if|constant|boolean|atomic|import|scriptjs|schema|lang)(?=\s|>)"
+        },
+        {
+          "name": "entity.name.tag.markin",
+          "match": "</?[a-zA-Z_][\w-]*"
+        },
+        {
+          "name": "string.quoted.double.markin",
+          "match": "\"[^\"]*\""
+        },
+        {
+          "name": "punctuation.definition.tag.markin",
+          "match": "/>|</|>"
+        }
+      ]
+    },
+    "script": {
+      "patterns": [
+        {
+          "name": "source.js.embedded.markin",
+          "begin": "<scriptjs>",
+          "end": "</scriptjs>",
+          "contentName": "source.js",
+          "patterns": [
+            { "include": "source.js" }
+          ]
+        },
+        {
+          "name": "source.js.inline.markin",
+          "begin": "<\?js",
+          "end": "\?>",
+          "contentName": "source.js",
+          "patterns": [
+            { "include": "source.js" }
+          ]
+        }
+      ]
+    },
+    "directives": {
+      "patterns": [
+        {
+          "name": "meta.directive.markin",
+          "match": "<\?marki(:[\w-]+)?=.*?\>"
+        }
+      ]
+    },
+    "yaml": {
+      "patterns": [
+        {
+          "name": "meta.yaml.markin",
+          "begin": "<marki!",
+          "end": "/>",
+          "contentName": "source.yaml",
+          "patterns": [
+            { "include": "source.yaml" }
+          ]
+        }
+      ]
+    },
+    "json": {
+      "patterns": [
+        {
+          "name": "meta.schema.json.markin",
+          "begin": "<schema>",
+          "end": "</schema>",
+          "contentName": "source.json",
+          "patterns": [
+            { "include": "source.json" }
+          ]
+        }
+      ]
+    },
+    "embedded": {
+      "patterns": [
+        {
+          "name": "meta.embedded.lang.markin",
+          "begin": "<lang type=\"(\w+)\">",
+          "end": "</lang>",
+          "contentName": "text.embedded",
+          "patterns": [
+            { "include": "text.html.basic" },
+            { "include": "source.ts" },
+            { "include": "source.python" },
+            { "include": "source.rust" },
+            { "include": "source.css" },
+            { "include": "source.json" },
+            { "include": "source.yaml" }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.markin"
+}
